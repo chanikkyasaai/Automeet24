@@ -7,7 +7,6 @@ $(document).ready(function () {
     $(".content").show();
 });
 
-
 const imageSets = [
     ['1.jpg', '2.jpg', '3.jpg', '4.jpg'],
     ['5.jpg', '11.jpg', '7.jpg', '8.jpg'],
@@ -98,7 +97,7 @@ $(document).ready(function ($) {
         speed: 500,
         slidesToShow: 3,
         slidesToScroll: 1,
-        autoplay: false,
+        autoplay: true,
         autoplaySpeed: 2000,
         arrows: true,
         responsive: [{
@@ -111,8 +110,8 @@ $(document).ready(function ($) {
             {
                 breakpoint: 400,
                 settings: {
-                    arrows: false,
-                    slidesToShow: 1,
+                    arrows: true,
+                    slidesToShow: 2,
                     slidesToScroll: 1
                 }
             }
@@ -126,7 +125,7 @@ $(document).ready(function ($) {
         speed: 500,
         slidesToShow: 3,
         slidesToScroll: 1,
-        autoplay: false,
+        autoplay: true,
         autoplaySpeed: 2000,
         arrows: true,
         responsive: [{
@@ -139,8 +138,8 @@ $(document).ready(function ($) {
             {
                 breakpoint: 400,
                 settings: {
-                    arrows: false,
-                    slidesToShow: 1,
+                    arrows: true,
+                    slidesToShow: 2,
                     slidesToScroll: 1
                 }
             }
