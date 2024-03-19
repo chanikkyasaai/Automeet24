@@ -2,10 +2,12 @@ $(window).on("load",function(){
     $(".loader").fadeOut("slow");
 
 });
+
 $(document).ready(function () {
     
     $(".content").show();
 });
+
 
 const imageSets = [
     ['1.jpg', '2.jpg', '3.jpg', '4.jpg'],
@@ -25,10 +27,16 @@ function createSlide(imageSrc) {
 function updateSlideshow() {
     slideshow.innerHTML = '';
 
-    imageSets[currentIndex].forEach(imageSrc => {
-        const slide = createSlide(imageSrc);
+    if (window.innerWidth <= 768) { // Check if viewport width is less than or equal to 768px (typical mobile width)
+        const slide = createSlide(imageSets[currentIndex][0]); // Display only the first image in fullscreen
+        slide.classList.add('fullscreen');
         slideshow.appendChild(slide);
-    });
+    } else {
+        imageSets[currentIndex].forEach(imageSrc => {
+            const slide = createSlide(imageSrc);
+            slideshow.appendChild(slide);
+        });
+    }
 
     currentIndex = (currentIndex + 1) % imageSets.length;
 }
@@ -49,7 +57,8 @@ preloadImages(imageSets);
 updateSlideshow();
 
 // Change images every 5 seconds (adjust as needed)
-setInterval(updateSlideshow, 3000);
+setInterval(updateSlideshow, 5000); // Changed to 5000ms for consistency with previous comment
+
 
 document.addEventListener('DOMContentLoaded', function () {
     const textContainer = document.querySelector('.typewriter-text');
@@ -94,7 +103,7 @@ $(document).ready(function ($) {
     $('#workshops .card-slider').slick({
         dots: true,
         infinite: true,
-        speed: 500,
+        speed: 200,
         slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
@@ -103,7 +112,7 @@ $(document).ready(function ($) {
         responsive: [{
                 breakpoint: 600,
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: 1,
                     slidesToScroll: 1
                 }
             },
@@ -111,7 +120,7 @@ $(document).ready(function ($) {
                 breakpoint: 400,
                 settings: {
                     arrows: true,
-                    slidesToShow: 2,
+                    slidesToShow: 1,
                     slidesToScroll: 1
                 }
             }
@@ -122,7 +131,7 @@ $(document).ready(function ($) {
     $('#technicals .card-slider').slick({
         dots: true,
         infinite: true,
-        speed: 500,
+        speed: 200,
         slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
@@ -131,7 +140,7 @@ $(document).ready(function ($) {
         responsive: [{
                 breakpoint: 600,
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: 1,
                     slidesToScroll: 1
                 }
             },
@@ -139,7 +148,36 @@ $(document).ready(function ($) {
                 breakpoint: 400,
                 settings: {
                     arrows: true,
-                    slidesToShow: 2,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
+
+
+    // Initialize Slick slider for technicals
+    $('#non-technicals .card-slider').slick({
+        dots: true,
+        infinite: true,
+        speed: 200,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        arrows: true,
+        responsive: [{
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 400,
+                settings: {
+                    arrows: true,
+                    slidesToShow: 1,
                     slidesToScroll: 1
                 }
             }
@@ -169,3 +207,4 @@ function showSlides() {
 
 // Initial call to start the slideshow
 showSlides();
+
