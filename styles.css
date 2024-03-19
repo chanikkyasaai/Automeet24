@@ -64,6 +64,12 @@ section {
         width: 100%;
     }
 }
+.countdown-timer {
+    cursor: not-allowed; /* Change cursor style to not-allowed */
+    pointer-events: none; /* Disable pointer events */
+    color: inherit; /* Preserve text color */
+    text-decoration: none; /* Remove underline */
+}
 
 .navbar {
     width: 30%;
