@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=NTR&display=swap');
 html,
 body {
     margin: 0;
@@ -6,6 +7,7 @@ body {
     color: white;
     overflow-x: hidden;
     user-select: none;
+    font-family: NTR, sans-serif;
 }
 
 
@@ -64,13 +66,13 @@ section {
         width: 100%;
     }
 }
+
 .countdown-timer {
     cursor: not-allowed; /* Change cursor style to not-allowed */
     pointer-events: none; /* Disable pointer events */
     color: inherit; /* Preserve text color */
     text-decoration: none; /* Remove underline */
 }
-
 .navbar {
     width: 30%;
     height: 50px;
@@ -592,11 +594,34 @@ section {
 }
 
 .slideshow-container {
-    width: 60vw;
+    width: 30vw;
     max-width: 800px;
     margin: 0 auto;
     position: relative;
 }
+@media (max-width: 800px) {
+    .slideshow-container {
+        width: 90vw; /* Adjust width for smaller screens */
+        max-width: 90%; /* Adjust max-width for smaller screens */
+    }
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.footer-link {
+    animation: blink 1s infinite; /* Apply the blink animation to the footer link */
+}
+
 
 .mySlides {
     display: none;
