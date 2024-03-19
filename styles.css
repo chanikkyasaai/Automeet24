@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     background-color: #091520;
@@ -6,6 +7,13 @@ html, body {
     overflow-x: hidden;
     user-select: none;
 }
+
+
+.countdown-timer {
+    position: absolute;
+    
+}
+
 
 body img {
     user-drag: none;
@@ -33,6 +41,7 @@ section {
     height: 100vh;
     display: flex;
     overflow: hidden;
+    z-index: -2;
 }
 
 .slideshow {
@@ -40,18 +49,26 @@ section {
     width: 100%;
     height: 100%;
     transition: transform 1s ease-in-out;
+    
 }
 
 .slideshow img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+
+}
+
+@media (max-width: 768px) {
+    .slideshow img{
+        width: 100%;
+    }
 }
 
 .navbar {
     width: 30%;
     height: 50px;
-    background: linear-gradient(to right, #ffffff, #ffeded);
+    background: rgba(255, 255, 255, 0.3);
     border-radius: 60px;
     position: fixed;
     bottom: 10%;
@@ -115,23 +132,33 @@ section {
     margin: 0;
     letter-spacing: 0.15em;
     animation: typing 3s steps(24, end), blink-caret 0.5s step-end infinite;
+    font-size: 2em; 
+}
+
+@media (max-width: 768px) {
+    .typewriter-text {
+        font-size: 1.5em; /* Adjust font size for smaller screens */
+    }
 }
 
 @keyframes typing {
     from {
         width: 0;
     }
+
     to {
         width: 100%;
     }
 }
 
 @keyframes blink-caret {
+
     from,
     to {
         border-color: transparent;
         transform: scale(1);
     }
+
     50% {
         border-color: white;
         transform: scale(1);
@@ -159,10 +186,12 @@ section {
 .accordion {
     .accordion-item {
         border-bottom: 1px solid #e5e5e5;
+
         button[aria-expanded='true'] {
             border-bottom: 1px solid #800000;
         }
     }
+
     button {
         position: relative;
         display: block;
@@ -175,18 +204,23 @@ section {
         border: none;
         background: none;
         outline: none;
-        &:hover, &:focus {
+
+        &:hover,
+        &:focus {
             cursor: pointer;
             color: #800000;
+
             &::after {
                 cursor: pointer;
                 color: #800000;
                 border: 1px solid #800000;
             }
         }
+
         .accordion-title {
             padding: 1em 1.5em 1em 0;
         }
+
         .icon {
             display: inline-block;
             position: absolute;
@@ -196,6 +230,7 @@ section {
             height: 22px;
             border: 1px solid;
             border-radius: 22px;
+
             &::before {
                 display: block;
                 position: absolute;
@@ -206,6 +241,7 @@ section {
                 height: 2px;
                 background: currentColor;
             }
+
             &::after {
                 display: block;
                 position: absolute;
@@ -218,26 +254,31 @@ section {
             }
         }
     }
+
     button[aria-expanded='true'] {
         color: #800000;
+
         .icon {
             &::after {
                 width: 0;
             }
         }
-        + .accordion-content {
+
+        +.accordion-content {
             opacity: 1;
             max-height: 9em;
             transition: all 200ms linear;
             will-change: opacity, max-height;
         }
     }
+
     .accordion-content {
         opacity: 0;
         max-height: 0;
         overflow: hidden;
         transition: opacity 200ms linear, max-height 200ms linear;
         will-change: opacity, max-height;
+
         p {
             font-size: 1rem;
             font-weight: 300;
@@ -251,12 +292,15 @@ section {
         width: 80%;
         left: 5%;
     }
+
     .slideshow {
         overflow: hidden;
     }
+
     .slideshow img {
         flex: 0 0 50%;
     }
+
     .animated-text {
         font-size: 40px;
     }
@@ -282,18 +326,23 @@ section {
         border: none;
         background: none;
         outline: none;
-        &:hover, &:focus {
+
+        &:hover,
+        &:focus {
             cursor: pointer;
             color: #800000;
+
             &::after {
                 cursor: pointer;
                 color: #800000;
                 border: 1px solid #800000;
             }
         }
+
         .accordion-title {
             padding: 1em 1.5em 1em 0;
         }
+
         .icon {
             display: inline-block;
             position: absolute;
@@ -303,6 +352,7 @@ section {
             height: 22px;
             border: 1px solid;
             border-radius: 22px;
+
             &::before {
                 display: block;
                 position: absolute;
@@ -313,6 +363,7 @@ section {
                 height: 2px;
                 background: currentColor;
             }
+
             &::after {
                 display: block;
                 position: absolute;
@@ -340,6 +391,7 @@ section {
         overflow: hidden;
         transition: max-height 0.3s ease-in-out;
         will-change: max-height;
+
         p {
             font-size: 1rem;
             font-weight: 300;
@@ -347,7 +399,7 @@ section {
         }
     }
 
-    button[aria-expanded='true'] + .accordion-content {
+    button[aria-expanded='true']+.accordion-content {
         max-height: 9em;
     }
 }
@@ -395,7 +447,7 @@ section {
 
 .address-container h3 {
     color: #800000;
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-bottom: 0.5rem;
 }
 
@@ -417,13 +469,14 @@ section {
 .contact-details-container {
     flex: 1 1 100%;
     margin-top: 1rem;
-    text-align: center;
+    text-align:left;
 }
 
 .contact-info-container {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    
 }
 
 .contact-person {
@@ -471,7 +524,7 @@ section {
 
 .slick-dots li button {
     font-size: 0;
-    color: #333;
+    color: #880000;
     padding: 5px;
     background-color: #fff;
     border: 0px solid #ccc;
@@ -490,6 +543,8 @@ section {
     display: none;
 }
 
+
+
 .card-body a.btn-primary {
     text-decoration: none;
     color: #fff;
@@ -498,6 +553,10 @@ section {
     border-radius: 5px;
     display: inline-block;
     margin-top: 10px;
+}
+
+.spacer {
+    margin-right: 30px; 
 }
 
 .card-body a.btn-primary:hover {
@@ -519,6 +578,7 @@ section {
     .card-slider {
         width: 100%;
     }
+    
 }
 
 #signature-events {
@@ -559,6 +619,7 @@ img {
 }
 
 .automeet-about-container {
+    padding-left: 5px;
     width: 100%;
     max-width: 1130px;
     margin: 0 auto;
@@ -571,7 +632,7 @@ img {
 .automeet-image {
     height: auto;
     width: 100%;
-    max-width: 400px;
+    max-width: 350px;
 }
 
 .automeet-text {
@@ -579,7 +640,7 @@ img {
 }
 
 .automeet-text h2 {
-    font-size: 70px;
+    font-size: 50px;
     font-weight: 600;
     margin-bottom: 10px;
 }
@@ -605,14 +666,21 @@ img {
         padding: 20px 0;
     }
 
+    .automeet-about-container {
+        display: flex;
+        flex-direction: column; /* Change to a column layout */
+        align-items: center; /* Center-align items */
+    }
+
     .automeet-image {
         width: 100%;
-        max-width: 250px;
+        max-width: 200px;
         margin-bottom: 20px;
     }
 
     .automeet-text {
         width: 100%;
+        margin-left: 1.5%;
     }
 
     .automeet-text h2 {
@@ -622,28 +690,6 @@ img {
     .automeet-text h5 {
         font-size: 18px;
     }
-}
-
-footer {
-    background-color: #091520;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-}
-
-.footer-text {
-    font-size: 18px;
-}
-
-.footer-link {
-    color: #800000;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.footer-link:hover {
-    color: #fff;
 }
 
 .loader {
@@ -730,6 +776,28 @@ footer {
         opacity: 0;
     }
 }
+
+footer {
+    background-color: #091520;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.footer-text {
+    font-size: 18px;
+}
+
+.footer-link {
+    color: #800000;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #fff;
+}
 .content {
-    display : none;
+    display: none;
 }
